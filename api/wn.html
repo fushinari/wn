@@ -1,0 +1,953 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="wn.lmf" href="wn.lmf.html" /><link rel="prev" title="The Structure of a Wordnet" href="../guides/wordnet.html" />
+
+    <meta name="generator" content="sphinx-3.2.1, furo 2020.10.15.beta13"/>
+        <title>wn - wn 0.0.1 documentation</title>
+      <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" href="../_static/styles/default.css?dba9e9e596b2f7b426b9bdce">
+    <link rel="stylesheet" href="../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
+    
+<style>
+  :root {
+    --color-code-background: #f0f3f3;
+    --color-code-foreground: black;
+  
+  
+    --color-brand-primary: #006699;
+  
+    --color-brand-content: #CC3333;
+  
+    --color-admonition-background: orange;
+  
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+    --color-code-background: #202020;
+    --color-code-foreground: #d0d0d0;
+      
+      
+        --color-brand-primary: #00CCFF;
+      
+        --color-brand-content: #CC3333;
+      
+        --color-admonition-background: orange;
+      
+      
+    }
+  }
+</style>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script><script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/main.js?dba9e9e596b2f7b426b9bdce"></script></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+<div class="page">
+  <header class="mobile-header">
+    <label class="header-left nav-overlay-icon" for="__navigation">
+      <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+    </label>
+    <div class="header-center"><div class="brand">wn 0.0.1 documentation</div></div>
+    <div class="header-right"></div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">wn 0.0.1 documentation</span>
+</a><form class="sidebar-search-container" method="get" action="../search.html">
+  <input class="sidebar-search" placeholder="Search" name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree sidebar-scroll">
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/setup.html">Installation, Setup, and Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/lexicons.html">Working with Lexicons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/basic.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/interlingual.html">Interlingual Queries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/wordnet.html">The Structure of a Wordnet</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">wn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wn.lmf.html">wn.lmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wn.similarity.html">wn.similarity</a></li>
+</ul>
+
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="module-wn">
+<span id="wn"></span><h1>wn<a class="headerlink" href="#module-wn" title="Permalink to this headline">¶</a></h1>
+<p>Wordnet Interface.</p>
+<div class="section" id="lexicon-management-functions">
+<h2>Lexicon Management Functions<a class="headerlink" href="#lexicon-management-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="wn.download">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_or_url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download the wordnet specified by <em>project_or_url</em>.</p>
+<p>If <em>project_or_url</em> starts with <cite>‘http://’</cite> or <cite>‘https://’</cite>, then
+it is taken to be a URL and the relevant project information
+(code, label, version, etc.) will be extracted from the retrieved
+file. Otherwise, <em>project_or_url</em> must be a known project id,
+optionally followed by <cite>‘:’</cite> and a known version. If the version
+is unspecified, the latest known version is retrieved.</p>
+<p>The retrieved file is cached locally and added to the wordnet
+database. If the URL was previously downloaded, a cached version
+will be used instead.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'ewn:2020'</span><span class="p">)</span>
+<span class="go">Download complete (13643357 bytes)</span>
+<span class="go">Checking /tmp/tmp_uqntl0l.xml</span>
+<span class="go">Reading /tmp/tmp_uqntl0l.xml</span>
+<span class="go">Building [###############################] (1337590/1337590)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>project_or_url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.add">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">add</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the LMF file at <em>source</em> to the database.</p>
+<p>The file at <em>source</em> may be gzip-compressed or plain text XML.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">'english-wordnet-2020.xml'</span><span class="p">)</span>
+<span class="go">Checking english-wordnet-2020.xml</span>
+<span class="go">Reading english-wordnet-2020.xml</span>
+<span class="go">Building [###############################] (1337590/1337590)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.remove">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">remove</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lexicon</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.remove" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="wordnet-query-functions">
+<h2>Wordnet Query Functions<a class="headerlink" href="#wordnet-query-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="wn.word">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">word</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.word" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the word with <em>id</em> in <em>lexicon</em>.</p>
+<p>If <em>lexicon</em> is not given, all lexicons will be searched, but only
+the first result, in arbitrary order, will be returned. If no
+words match, <cite>None</cite> is returned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">word</span><span class="p">(</span><span class="s1">'ewn-cell-n'</span><span class="p">)</span>
+<span class="go">Word('ewn-cell-n')</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.words">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">words</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of matching words.</p>
+<p>The <em>form</em>, <em>pos</em>, <em>lgcode</em>, and <em>lexicon</em> parameters act as
+filters—i.e., if all are omitted, all known words will be
+returned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">())</span>
+<span class="go">282902</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="s1">'v'</span><span class="p">))</span>
+<span class="go">34592</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">form</span><span class="o">=</span><span class="s2">"scurry"</span><span class="p">)</span>
+<span class="go">[Word('ewn-scurry-n'), Word('ewn-scurry-v')]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.sense">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">sense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.sense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the sense with <em>id</em> in <em>lexicon</em>.</p>
+<p>If <em>lexicon</em> is not given, all lexicons will be searched, but only
+the first result, in arbitrary order, will be returned. If no
+words match, <cite>None</cite> is returned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">sense</span><span class="p">(</span><span class="s1">'ewn-flutter-v-01903884-02'</span><span class="p">)</span>
+<span class="go">Sense('ewn-flutter-v-01903884-02')</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.senses">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">senses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.senses" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of matching senses.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'twig'</span><span class="p">))</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'twig'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)</span>
+<span class="go">[Sense('ewn-twig-n-13184889-02')]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.synset">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">synset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.synset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the synset with <em>id</em> in <em>lexicon</em>.</p>
+<p>If <em>lexicon</em> is not given, all lexicons will be searched, but only
+the first result, in arbitrary order, will be returned. If no
+words match, <cite>None</cite> is returned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synset</span><span class="p">(</span><span class="s1">'ewn-03311152-n'</span><span class="p">)</span>
+<span class="go">Synset('ewn-03311152-n')</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.synsets">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">synsets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ili</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.synsets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of matching synsets.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'couch'</span><span class="p">))</span>
+<span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'couch'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'v'</span><span class="p">)</span>
+<span class="go">[Synset('ewn-00983308-v')]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>ili</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.lexicons">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">lexicons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.lexicons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the lexicons matching a language or identifier key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Lexicon" title="wn.Lexicon">wn.Lexicon</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="the-wordnet-class">
+<h2>The WordNet Class<a class="headerlink" href="#the-wordnet-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="wn.WordNet">
+<em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">WordNet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">expand</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for interacting with WordNet data.</p>
+<dl class="py attribute">
+<dt id="wn.WordNet.lgcode">
+<code class="sig-name descname">lgcode</code><a class="headerlink" href="#wn.WordNet.lgcode" title="Permalink to this definition">¶</a></dt>
+<dd><p>The value of the language-code filter used in object
+instantiation, if any.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.word">
+<code class="sig-name descname">word</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.word" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.words">
+<code class="sig-name descname">words</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.words" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.sense">
+<code class="sig-name descname">sense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.sense" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.senses">
+<code class="sig-name descname">senses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.senses" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.synset">
+<code class="sig-name descname">synset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.synset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.synsets">
+<code class="sig-name descname">synsets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ili</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.synsets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>pos</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>ili</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.lexicons">
+<code class="sig-name descname">lexicons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.lexicons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py method">
+<dt id="wn.WordNet.expanded_lexicons">
+<code class="sig-name descname">expanded_lexicons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.expanded_lexicons" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="the-word-class">
+<h2>The Word Class<a class="headerlink" href="#the-word-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="wn.Word">
+<em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">Word</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">pos</span></em>, <em class="sig-param"><span class="n">forms</span></em>, <em class="sig-param"><span class="n">_lexid</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_wordnet</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="wn.Word.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#wn.Word.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier used within a lexicon.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="wn.Word.pos">
+<code class="sig-name descname">pos</code><a class="headerlink" href="#wn.Word.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>The part of speech of the Word.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Word.lemma">
+<code class="sig-name descname">lemma</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word.lemma" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Word.forms">
+<code class="sig-name descname">forms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word.forms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Word.senses">
+<code class="sig-name descname">senses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word.senses" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Word.synsets">
+<code class="sig-name descname">synsets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word.synsets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Word.derived_words">
+<code class="sig-name descname">derived_words</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word.derived_words" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Word.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Word.translate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>, List[<a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="the-sense-class">
+<h2>The Sense Class<a class="headerlink" href="#the-sense-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="wn.Sense">
+<em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">Sense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">entry_id</span></em>, <em class="sig-param"><span class="n">synset_id</span></em>, <em class="sig-param"><span class="n">_lexid</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_wordnet</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="wn.Sense.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#wn.Sense.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier used within a lexicon.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.word">
+<code class="sig-name descname">word</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.word" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.synset">
+<code class="sig-name descname">synset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.synset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.get_related">
+<code class="sig-name descname">get_related</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.get_related" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.get_related_synsets">
+<code class="sig-name descname">get_related_synsets</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.get_related_synsets" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.closure">
+<code class="sig-name descname">closure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.closure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>T</em>) – </p></li>
+<li><p><strong>relation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Iterator[T]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.relation_paths">
+<code class="sig-name descname">relation_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.relation_paths" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>T</em>) – </p></li>
+<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[List[T]]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Sense.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.translate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="the-synset-class">
+<h2>The Synset Class<a class="headerlink" href="#the-synset-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="wn.Synset">
+<em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">Synset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">pos</span></em>, <em class="sig-param"><span class="n">ili</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">_lexid</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_wordnet</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="wn.Synset.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#wn.Synset.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>The identifier used within a lexicon.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="wn.Synset.pos">
+<code class="sig-name descname">pos</code><a class="headerlink" href="#wn.Synset.pos" title="Permalink to this definition">¶</a></dt>
+<dd><p>The part of speech of the Synset.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="wn.Synset.ili">
+<code class="sig-name descname">ili</code><a class="headerlink" href="#wn.Synset.ili" title="Permalink to this definition">¶</a></dt>
+<dd><p>The interlingual index of the Synset.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.definition">
+<code class="sig-name descname">definition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.definition" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.examples">
+<code class="sig-name descname">examples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.examples" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.senses">
+<code class="sig-name descname">senses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.senses" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.words">
+<code class="sig-name descname">words</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.words" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.lemmas">
+<code class="sig-name descname">lemmas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.lemmas" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.hypernyms">
+<code class="sig-name descname">hypernyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.hypernyms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.hyponyms">
+<code class="sig-name descname">hyponyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.hyponyms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.holonyms">
+<code class="sig-name descname">holonyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.holonyms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.meronyms">
+<code class="sig-name descname">meronyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.meronyms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.hypernym_paths">
+<code class="sig-name descname">hypernym_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simulate_root</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.hypernym_paths" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulate_root</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.lowest_common_hypernyms">
+<code class="sig-name descname">lowest_common_hypernyms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">simulate_root</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.lowest_common_hypernyms" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other</strong> (<a class="reference internal" href="#wn.Synset" title="wn.Synset"><em>wn.Synset</em></a>) – </p></li>
+<li><p><strong>simulate_root</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.get_related">
+<code class="sig-name descname">get_related</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.get_related" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.closure">
+<code class="sig-name descname">closure</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">relation</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.closure" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>T</em>) – </p></li>
+<li><p><strong>relation</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Iterator[T]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.relation_paths">
+<code class="sig-name descname">relation_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.relation_paths" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<em>T</em>) – </p></li>
+<li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[List[T]]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn.Synset.translate">
+<code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.translate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="the-lexicon-class">
+<h2>The Lexicon Class<a class="headerlink" href="#the-lexicon-class" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="wn.Lexicon">
+<em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">Lexicon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">language</span></em>, <em class="sig-param"><span class="n">email</span></em>, <em class="sig-param"><span class="n">license</span></em>, <em class="sig-param"><span class="n">version</span></em>, <em class="sig-param"><span class="n">url</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">citation</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">metadata</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">_id</span><span class="o">=</span><span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Lexicon" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="wn.Lexicon.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#wn.Lexicon.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.label">
+<code class="sig-name descname">label</code><a class="headerlink" href="#wn.Lexicon.label" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.language">
+<code class="sig-name descname">language</code><a class="headerlink" href="#wn.Lexicon.language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#wn.Lexicon.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.license">
+<code class="sig-name descname">license</code><a class="headerlink" href="#wn.Lexicon.license" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.version">
+<code class="sig-name descname">version</code><a class="headerlink" href="#wn.Lexicon.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.url">
+<code class="sig-name descname">url</code><a class="headerlink" href="#wn.Lexicon.url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.citation">
+<code class="sig-name descname">citation</code><a class="headerlink" href="#wn.Lexicon.citation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt id="wn.Lexicon.metadata">
+<code class="sig-name descname">metadata</code><a class="headerlink" href="#wn.Lexicon.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="exceptions">
+<h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="py exception">
+<dt id="wn.Error">
+<em class="property">exception </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">Error</code><a class="headerlink" href="#wn.Error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic error class for invalid wordnet operations.</p>
+</dd></dl>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="wn.lmf.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">wn.lmf</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../guides/wordnet.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">The Structure of a Wordnet</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+          <span class="copyright">Copyright &copy; 2020, Michael Wayne Goodman</span> |
+          Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using
+          <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+          <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree">
+          <ul>
+<li><a class="reference internal" href="#">wn</a><ul>
+<li><a class="reference internal" href="#lexicon-management-functions">Lexicon Management Functions</a></li>
+<li><a class="reference internal" href="#wordnet-query-functions">Wordnet Query Functions</a></li>
+<li><a class="reference internal" href="#the-wordnet-class">The WordNet Class</a></li>
+<li><a class="reference internal" href="#the-word-class">The Word Class</a></li>
+<li><a class="reference internal" href="#the-sense-class">The Sense Class</a></li>
+<li><a class="reference internal" href="#the-synset-class">The Synset Class</a></li>
+<li><a class="reference internal" href="#the-lexicon-class">The Lexicon Class</a></li>
+<li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+  </body>
+</html>
