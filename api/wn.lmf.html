@@ -7,7 +7,7 @@
         <title>wn.lmf - wn 0.0.1 documentation</title>
       <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/default.css?211027889093f90baea5191b">
+    <link rel="stylesheet" href="../_static/styles/default.css?e1a9a081dcc42f6b36c79fc3">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -19,7 +19,7 @@
   
     --color-brand-primary: #006699;
   
-    --color-brand-content: #CC3333;
+    --color-brand-content: #006699;
   
     --color-admonition-background: orange;
   
@@ -33,7 +33,7 @@
       
         --color-brand-primary: #00CCFF;
       
-        --color-brand-content: #CC3333;
+        --color-brand-content: #00CCFF;
       
         --color-admonition-background: orange;
       
@@ -47,7 +47,7 @@
     <script src="../_static/language_data.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/main.js?211027889093f90baea5191b"></script></head>
+    <script src="../_static/scripts/main.js?e1a9a081dcc42f6b36c79fc3"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -130,8 +130,48 @@
         <label class="toc-overlay-icon no-toc" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="wn-lmf">
-<h1>wn.lmf<a class="headerlink" href="#wn-lmf" title="Permalink to this headline">¶</a></h1>
+        <div class="section" id="module-wn.lmf">
+<span id="wn-lmf"></span><h1>wn.lmf<a class="headerlink" href="#module-wn.lmf" title="Permalink to this headline">¶</a></h1>
+<p>Reader for the Lexical Markup Framework (LMF) format.</p>
+<dl class="py function">
+<dt id="wn.lmf.load">
+<code class="sig-prename descclassname">wn.lmf.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.lmf.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load wordnets encoded in the LMF-XML format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – path to an LMF-XML file</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[wn.lmf.Lexicon]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.lmf.scan_lexicons">
+<code class="sig-prename descclassname">wn.lmf.</code><code class="sig-name descname">scan_lexicons</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.lmf.scan_lexicons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scan <em>source</em> and return only the top-level lexicon info.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>List[Dict]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.lmf.is_lmf">
+<code class="sig-prename descclassname">wn.lmf.</code><code class="sig-name descname">is_lmf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.lmf.is_lmf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if <em>source</em> is a WN-LMF XML file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
 </div>
 
       </article>
