@@ -3,42 +3,46 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="wn.lmf" href="wn.lmf.html" /><link rel="prev" title="The Structure of a Wordnet" href="../guides/wordnet.html" />
 
-    <meta name="generator" content="sphinx-3.2.1, furo 2020.10.15.beta13"/>
+    <meta name="generator" content="sphinx-3.3.0, furo 2020.11.01.beta14"/>
         <title>wn - wn 0.0.1 documentation</title>
       <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/default.css?59c28f58a31636ccfec95b75">
+    <link rel="stylesheet" href="../_static/styles/default.css?a205c70d779dbde5afd9be38">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
+
+
 <style>
   :root {
     --color-code-background: #f0f3f3;
-    --color-code-foreground: black;
-  
-  
-    --color-brand-primary: #006699;
-  
-    --color-brand-content: #006699;
-  
-    --color-admonition-background: orange;
-  
+  --color-code-foreground: black;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
-    --color-code-background: #202020;
-    --color-code-foreground: #d0d0d0;
-      
-      
-        --color-brand-primary: #00CCFF;
-      
-        --color-brand-content: #00CCFF;
-      
-        --color-admonition-background: orange;
-      
-      
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #00CCFF;
+  --color-brand-content: #00CCFF;
+  --color-admonition-background: orange;
+  
     }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f0f3f3;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #00CCFF;
+  --color-brand-content: #00CCFF;
+  --color-admonition-background: orange;
+  
   }
 </style>
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script><script src="../_static/jquery.js"></script>
@@ -47,7 +51,7 @@
     <script src="../_static/language_data.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/main.js?59c28f58a31636ccfec95b75"></script></head>
+    <script src="../_static/scripts/main.js?a205c70d779dbde5afd9be38"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -92,7 +96,9 @@
     <label class="header-left nav-overlay-icon" for="__navigation">
       <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
     </label>
-    <div class="header-center"><div class="brand">wn 0.0.1 documentation</div></div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">wn 0.0.1 documentation</div></a>
+    </div>
     <div class="header-right"></div>
   </header>
   <aside class="sidebar-drawer">
@@ -105,8 +111,9 @@
   <input class="sidebar-search" placeholder="Search" name="q">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
-</form><div class="sidebar-tree sidebar-scroll">
-  <ul>
+</form><div class="sidebar-scroll">
+  <div class="sidebar-tree">
+    <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guides/setup.html">Installation, Setup, and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/lexicons.html">Working with Lexicons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/basic.html">Basic Usage</a></li>
@@ -120,6 +127,8 @@
 <li class="toctree-l1"><a class="reference internal" href="wn.similarity.html">wn.similarity</a></li>
 </ul>
 
+  </div>
+  <div id="ethical-ad-placement"></div>
 </div>
       </div>
       
@@ -614,16 +623,17 @@ instantiation, if any.</p>
 </dd></dl>
 <dl class="py method">
 <dt id="wn.Sense.relation_paths">
-<code class="sig-name descname">relation_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.relation_paths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">relation_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.relation_paths" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>T</em>) – </p></li>
 <li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>end</strong> (<em>T</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>List[List[T]]</p>
+<dd class="field-even"><p>Iterator[List[T]]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -801,16 +811,17 @@ instantiation, if any.</p>
 </dd></dl>
 <dl class="py method">
 <dt id="wn.Synset.relation_paths">
-<code class="sig-name descname">relation_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.relation_paths" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">relation_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em>, <em class="sig-param"><span class="n">end</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.relation_paths" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>T</em>) – </p></li>
 <li><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>end</strong> (<em>T</em>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>List[List[T]]</p>
+<dd class="field-even"><p>Iterator[List[T]]</p>
 </dd>
 </dl>
 </dd></dl>

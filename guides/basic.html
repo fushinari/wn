@@ -3,42 +3,46 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Interlingual Queries" href="interlingual.html" /><link rel="prev" title="Working with Lexicons" href="lexicons.html" />
 
-    <meta name="generator" content="sphinx-3.2.1, furo 2020.10.15.beta13"/>
+    <meta name="generator" content="sphinx-3.3.0, furo 2020.11.01.beta14"/>
         <title>Basic Usage - wn 0.0.1 documentation</title>
       <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/default.css?6b3ccb8a38117d9b26b42d16">
+    <link rel="stylesheet" href="../_static/styles/default.css?e9654d92ccd6e1fb9b6360aa">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
+
+
 <style>
   :root {
     --color-code-background: #f0f3f3;
-    --color-code-foreground: black;
-  
-  
-    --color-brand-primary: #006699;
-  
-    --color-brand-content: #006699;
-  
-    --color-admonition-background: orange;
-  
+  --color-code-foreground: black;
   
   }
   @media (prefers-color-scheme: dark) {
     :root {
-    --color-code-background: #202020;
-    --color-code-foreground: #d0d0d0;
-      
-      
-        --color-brand-primary: #00CCFF;
-      
-        --color-brand-content: #00CCFF;
-      
-        --color-admonition-background: orange;
-      
-      
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #00CCFF;
+  --color-brand-content: #00CCFF;
+  --color-admonition-background: orange;
+  
     }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f0f3f3;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  --color-brand-primary: #00CCFF;
+  --color-brand-content: #00CCFF;
+  --color-admonition-background: orange;
+  
   }
 </style>
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script><script src="../_static/jquery.js"></script>
@@ -47,7 +51,7 @@
     <script src="../_static/language_data.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/main.js?6b3ccb8a38117d9b26b42d16"></script></head>
+    <script src="../_static/scripts/main.js?e9654d92ccd6e1fb9b6360aa"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -92,7 +96,9 @@
     <label class="header-left nav-overlay-icon" for="__navigation">
       <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
     </label>
-    <div class="header-center"><div class="brand">wn 0.0.1 documentation</div></div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">wn 0.0.1 documentation</div></a>
+    </div>
     <div class="header-right"></div>
   </header>
   <aside class="sidebar-drawer">
@@ -105,8 +111,9 @@
   <input class="sidebar-search" placeholder="Search" name="q">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
-</form><div class="sidebar-tree sidebar-scroll">
-  <ul class="current">
+</form><div class="sidebar-scroll">
+  <div class="sidebar-tree">
+    <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Installation, Setup, and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lexicons.html">Working with Lexicons</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Basic Usage</a></li>
@@ -120,6 +127,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../api/wn.similarity.html">wn.similarity</a></li>
 </ul>
 
+  </div>
+  <div id="ethical-ad-placement"></div>
 </div>
       </div>
       
