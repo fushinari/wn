@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Interlingual Queries" href="interlingual.html" /><link rel="prev" title="Working with Lexicons" href="lexicons.html" />
 
-    <meta name="generator" content="sphinx-3.3.0, furo 2020.11.10.beta15"/>
+    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.10.beta15"/>
         <title>Basic Usage - wn 0.0.1 documentation</title>
       <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo.css?state=9432d9ac4e101ca163e9de59">
+    <link rel="stylesheet" href="../_static/styles/furo.css?state=2adc42e916c02d3e7f355112">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -53,7 +53,7 @@
     <script src="../_static/language_data.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/main.js?state=9432d9ac4e101ca163e9de59"></script></head>
+    <script src="../_static/scripts/main.js?state=2adc42e916c02d3e7f355112"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -153,26 +153,256 @@
         </label>
         <div class="section" id="basic-usage">
 <h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="simple-queries">
-<h2>Simple Queries<a class="headerlink" href="#simple-queries" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wn</span>
-<span class="n">ws</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"cat"</span><span class="p">)</span>
-<span class="n">ss</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">synsets</span><span class="p">()</span>
-<span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s2">"cat"</span><span class="p">)</span>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>This document covers the basics of querying wordnets, filtering
+results, and performing secondary queries on the results. For
+adding, removing, or inspecting lexicons, see <a class="reference internal" href="lexicons.html"><span class="doc">Working with Lexicons</span></a>. For
+more information about interlingual queries, see
+<a class="reference internal" href="interlingual.html"><span class="doc">Interlingual Queries</span></a>.</p>
+</div>
+<p>For the most basic queries, Wn provides several module functions for
+retrieving words, senses, and synsets:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'pike'</span><span class="p">)</span>
+<span class="go">[Word('ewn-pike-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'pike'</span><span class="p">)</span>
+<span class="go">[Sense('ewn-pike-n-03311555-04'), Sense('ewn-pike-n-07795351-01'), Sense('ewn-pike-n-03941974-01'), Sense('ewn-pike-n-03941726-01'), Sense('ewn-pike-n-02563739-01')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'pike'</span><span class="p">)</span>
+<span class="go">[Synset('ewn-03311555-n'), Synset('ewn-07795351-n'), Synset('ewn-03941974-n'), Synset('ewn-03941726-n'), Synset('ewn-02563739-n')]</span>
+</pre></div>
+</div>
+<p>Once you start working with multiple wordnets, these simple queries
+may return more than desired:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'pike'</span><span class="p">)</span>
+<span class="go">[Word('ewn-pike-n'), Word('wnja-n-66614')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">)</span>
+<span class="go">[Word('ewn-chat-n'), Word('ewn-chat-v'), Word('frawn-lex14803'), Word('frawn-lex21897')]</span>
+</pre></div>
+</div>
+<p>You can specify which language or lexicon you wish to query:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'pike'</span><span class="p">,</span> <span class="n">lgcode</span><span class="o">=</span><span class="s1">'ja'</span><span class="p">)</span>
+<span class="go">[Word('wnja-n-66614')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'frawn'</span><span class="p">)</span>
+<span class="go">[Word('frawn-lex14803'), Word('frawn-lex21897')]</span>
+</pre></div>
+</div>
+<p>But it might be easier to create a <a class="reference internal" href="../api/wn.html#wn.WordNet" title="wn.WordNet"><code class="xref py py-class docutils literal notranslate"><span class="pre">WordNet</span></code></a> object and use
+it for queries:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wnja</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">WordNet</span><span class="p">(</span><span class="n">lgcode</span><span class="o">=</span><span class="s1">'ja'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wnja</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'pike'</span><span class="p">)</span>
+<span class="go">[Word('wnja-n-66614')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">frawn</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">WordNet</span><span class="p">(</span><span class="n">lexicon</span><span class="o">=</span><span class="s1">'frawn'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">frawn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">)</span>
+<span class="go">[Word('frawn-lex14803'), Word('frawn-lex21897')]</span>
+</pre></div>
+</div>
+<p>In fact, the simple queries above implicitly create such a
+<a class="reference internal" href="../api/wn.html#wn.WordNet" title="wn.WordNet"><code class="xref py py-class docutils literal notranslate"><span class="pre">WordNet</span></code></a> object, but one that includes all installed
+lexicons.</p>
+<div class="section" id="primary-queries">
+<h2>Primary Queries<a class="headerlink" href="#primary-queries" title="Permalink to this headline">¶</a></h2>
+<p>The queries shown above are “primary” queries, meaning they are the
+first step in a user’s interaction with a wordnet. Operations
+performed on the resulting objects are then <a class="reference internal" href="#secondary-queries">secondary
+queries</a>. Primary queries optionally take several fields for
+filtering the results, namely the word form and part of
+speech. Synsets may also be filtered by an interlingual index (ILI).</p>
+<div class="section" id="searching-for-words">
+<h3>Searching for Words<a class="headerlink" href="#searching-for-words" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../api/wn.html#wn.words" title="wn.words"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.words()</span></code></a> function returns a list of <a class="reference internal" href="../api/wn.html#wn.Word" title="wn.Word"><code class="xref py py-class docutils literal notranslate"><span class="pre">Word</span></code></a>
+objects that match the given word form or part of speech:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'pencil'</span><span class="p">)</span>
+<span class="go">[Word('ewn-pencil-n'), Word('ewn-pencil-v')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'pencil'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'v'</span><span class="p">)</span>
+<span class="go">[Word('ewn-pencil-v')]</span>
+</pre></div>
+</div>
+<p>Calling the function without a word form will return all words in the
+database:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">())</span>
+<span class="go">311711</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="s1">'v'</span><span class="p">))</span>
+<span class="go">29419</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="n">pos</span><span class="o">=</span><span class="s1">'v'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'ewn'</span><span class="p">))</span>
+<span class="go">11595</span>
+</pre></div>
+</div>
+<p>If you know the word identifier used by a lexicon, you can retrieve
+the word directly with the <a class="reference internal" href="../api/wn.html#wn.word" title="wn.word"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.word()</span></code></a> function. Identifiers are
+guaranteed to be unique within a single lexicon, but not across
+lexicons, so it’s best to call this function from an instantiated
+<a class="reference internal" href="../api/wn.html#wn.WordNet" title="wn.WordNet"><code class="xref py py-class docutils literal notranslate"><span class="pre">WordNet</span></code></a> object or with the <code class="docutils literal notranslate"><span class="pre">lexicon</span></code> parameter
+specified. If multiple words are found when querying multiple
+lexicons, only the first is returned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">word</span><span class="p">(</span><span class="s1">'ewn-pencil-n'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'ewn'</span><span class="p">)</span>
+<span class="go">Word('ewn-pencil-n')</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="exploring-relations">
-<h2>Exploring Relations<a class="headerlink" href="#exploring-relations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="searching-for-senses">
+<h3>Searching for Senses<a class="headerlink" href="#searching-for-senses" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../api/wn.html#wn.senses" title="wn.senses"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.senses()</span></code></a> and <a class="reference internal" href="../api/wn.html#wn.sense" title="wn.sense"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.sense()</span></code></a> functions behave
+similarly to <a class="reference internal" href="../api/wn.html#wn.words" title="wn.words"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.words()</span></code></a> and <a class="reference internal" href="../api/wn.html#wn.word" title="wn.word"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.word()</span></code></a>, except that
+they return matching <a class="reference internal" href="../api/wn.html#wn.Sense" title="wn.Sense"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sense</span></code></a> objects.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'plow'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)</span>
+<span class="go">[Sense('ewn-plow-n-03973894-01')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">sense</span><span class="p">(</span><span class="s1">'ewn-plow-v-01745745-01'</span><span class="p">)</span>
+<span class="go">Sense('ewn-plow-v-01745745-01')</span>
+</pre></div>
+</div>
+<p>Senses represent a relationship between a <a class="reference internal" href="../api/wn.html#wn.Word" title="wn.Word"><code class="xref py py-class docutils literal notranslate"><span class="pre">Word</span></code></a> and a
+<a class="reference internal" href="../api/wn.html#wn.Synset" title="wn.Synset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Synset</span></code></a>. Seen as an edge between nodes, senses are often
+given less prominence than words or synsets, but they are the natural
+locus of several interesting features such as sense relations (e.g.,
+for derived words) and the natural level of representation for
+translations to other languages.</p>
+</div>
+<div class="section" id="searching-for-synsets">
+<h3>Searching for Synsets<a class="headerlink" href="#searching-for-synsets" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../api/wn.html#wn.synsets" title="wn.synsets"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.synsets()</span></code></a> and <a class="reference internal" href="../api/wn.html#wn.synset" title="wn.synset"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.synset()</span></code></a> functions are like
+those above but allow the <code class="docutils literal notranslate"><span class="pre">ili</span></code> parameter for filtering by
+interlingual index, which is useful in interlingual queries:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'scepter'</span><span class="p">)</span>
+<span class="go">[Synset('ewn-14467142-n'), Synset('ewn-07282278-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synset</span><span class="p">(</span><span class="s1">'ewn-07282278-n'</span><span class="p">)</span><span class="o">.</span><span class="n">ili</span>
+<span class="go">'i74874'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="n">ili</span><span class="o">=</span><span class="s1">'i74874'</span><span class="p">)</span>
+<span class="go">[Synset('ewn-07282278-n'), Synset('wnja-07267573-n'), Synset('frawn-07267573-n')]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="secondary-queries">
+<h2>Secondary Queries<a class="headerlink" href="#secondary-queries" title="Permalink to this headline">¶</a></h2>
+<p>Once you have gotten some results from a primary query, you can
+perform operations on the <a class="reference internal" href="../api/wn.html#wn.Word" title="wn.Word"><code class="xref py py-class docutils literal notranslate"><span class="pre">Word</span></code></a>, <a class="reference internal" href="../api/wn.html#wn.Sense" title="wn.Sense"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sense</span></code></a>, or
+<a class="reference internal" href="../api/wn.html#wn.Synset" title="wn.Synset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Synset</span></code></a> objects to get at further information in the
+wordnet.</p>
+<div class="section" id="exploring-words">
+<h3>Exploring Words<a class="headerlink" href="#exploring-words" title="Permalink to this headline">¶</a></h3>
+<p>Here are some of the things you can do with <a class="reference internal" href="../api/wn.html#wn.Word" title="wn.Word"><code class="xref py py-class docutils literal notranslate"><span class="pre">Word</span></code></a> objects:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'goose'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">pos</span>  <span class="c1"># part of speech</span>
+<span class="go">'n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">forms</span><span class="p">()</span>  <span class="c1"># other word forms (e.g., irregular inflections)</span>
+<span class="go">['goose', 'geese']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">lemma</span><span class="p">()</span>  <span class="c1"># canonical form</span>
+<span class="go">'goose'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">derived_words</span><span class="p">()</span>
+<span class="go">[Word('ewn-gosling-n'), Word('ewn-goosy-s'), Word('ewn-goosey-s')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">senses</span><span class="p">()</span>
+<span class="go">[Sense('ewn-goose-n-01858313-01'), Sense('ewn-goose-n-10177319-06'), Sense('ewn-goose-n-07662430-01')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="o">.</span><span class="n">synsets</span><span class="p">()</span>
+<span class="go">[Synset('ewn-01858313-n'), Synset('ewn-10177319-n'), Synset('ewn-07662430-n')]</span>
+</pre></div>
+</div>
+<p>Since translations of a word into another language depend on the sense
+used, <a class="reference internal" href="../api/wn.html#wn.Word.translate" title="wn.Word.translate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Word.translate</span></code></a> returns a dictionary
+mapping each sense to words in the target language:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">sense</span><span class="p">,</span> <span class="n">ja_words</span> <span class="ow">in</span> <span class="n">w</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'ja'</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">sense</span><span class="p">,</span> <span class="n">ja_words</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">Sense('ewn-goose-n-01858313-01') [Word('wnja-n-1254'), Word('wnja-n-33090'), Word('wnja-n-38995')]</span>
+<span class="go">Sense('ewn-goose-n-10177319-06') []</span>
+<span class="go">Sense('ewn-goose-n-07662430-01') [Word('wnja-n-1254')]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exploring-senses">
+<h3>Exploring Senses<a class="headerlink" href="#exploring-senses" title="Permalink to this headline">¶</a></h3>
+<p>Compared to <a class="reference internal" href="../api/wn.html#wn.Word" title="wn.Word"><code class="xref py py-class docutils literal notranslate"><span class="pre">Word</span></code></a> and <a class="reference internal" href="../api/wn.html#wn.Synset" title="wn.Synset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Synset</span></code></a> objects, there
+are relatively few operations available on <a class="reference internal" href="../api/wn.html#wn.Sense" title="wn.Sense"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sense</span></code></a>
+objects. Sense relations and translations, however, are important
+operations on senses.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'dark'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">word</span><span class="p">()</span>    <span class="c1"># each sense links to a single word</span>
+<span class="go">Word('ewn-dark-n')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">synset</span><span class="p">()</span>  <span class="c1"># each sense links to a single synset</span>
+<span class="go">Synset('ewn-14007000-n')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">get_related</span><span class="p">(</span><span class="s1">'antonym'</span><span class="p">)</span>
+<span class="go">[Sense('ewn-light-n-14006789-01')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">get_related</span><span class="p">(</span><span class="s1">'derivation'</span><span class="p">)</span>
+<span class="go">[Sense('ewn-dark-a-00273948-01')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)</span>  <span class="c1"># translation returns a list of senses</span>
+<span class="go">[Sense('frawn-lex52992--13983515-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">word</span><span class="p">()</span><span class="o">.</span><span class="n">lemma</span><span class="p">()</span>
+<span class="go">'obscurité'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exploring-synsets">
+<h3>Exploring Synsets<a class="headerlink" href="#exploring-synsets" title="Permalink to this headline">¶</a></h3>
+<p>Many of the operations people care about happen on synsets, such as
+hierarchical relations and metrics.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'hound'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">senses</span><span class="p">()</span>
+<span class="go">[Sense('ewn-hound-n-02090203-01'), Sense('ewn-hound_dog-n-02090203-02')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
+<span class="go">[Word('ewn-hound-n'), Word('ewn-hound_dog-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">lemmas</span><span class="p">()</span>
+<span class="go">['hound', 'hound dog']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">definition</span><span class="p">()</span>
+<span class="go">'any of several breeds of dog used for hunting typically having large drooping ears'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">hypernyms</span><span class="p">()</span>
+<span class="go">[Synset('ewn-02089774-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">hypernyms</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmas</span><span class="p">()</span>
+<span class="go">['hunting dog']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">hyponyms</span><span class="p">())</span>
+<span class="go">20</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">hyponyms</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmas</span><span class="p">()</span>
+<span class="go">['Afghan', 'Afghan hound']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">max_depth</span><span class="p">()</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">shortest_path</span><span class="p">(</span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'dog'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="go">[Synset('ewn-02090203-n'), Synset('ewn-02089774-n'), Synset('ewn-02086723-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)</span>  <span class="c1"># translation returns a list of synsets</span>
+<span class="go">[Synset('frawn-02087551-n')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'fr'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lemmas</span><span class="p">()</span>
+<span class="go">['chien', 'chien de chasse']</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="filtering-by-language">
 <h2>Filtering by Language<a class="headerlink" href="#filtering-by-language" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">lgcode</span></code> parameter of <a class="reference internal" href="../api/wn.html#wn.words" title="wn.words"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.words()</span></code></a>, <a class="reference internal" href="../api/wn.html#wn.senses" title="wn.senses"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.senses()</span></code></a>,
+<a class="reference internal" href="../api/wn.html#wn.synsets" title="wn.synsets"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.synsets()</span></code></a>, and <a class="reference internal" href="../api/wn.html#wn.WordNet" title="wn.WordNet"><code class="xref py py-class docutils literal notranslate"><span class="pre">WordNet</span></code></a> allows a single <a class="reference external" href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP-47</a> language
+code. When this parameter is used, only entries in the specified
+language will be returned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">wn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">)</span>
+<span class="go">[Word('ewn-chat-n'), Word('ewn-chat-v'), Word('frawn-lex14803'), Word('frawn-lex21897')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">,</span> <span class="n">lgcode</span><span class="o">=</span><span class="s1">'fr'</span><span class="p">)</span>
+<span class="go">[Word('frawn-lex14803'), Word('frawn-lex21897')]</span>
+</pre></div>
+</div>
+<p>If a language code not used by any lexicon is specified, a
+<a class="reference internal" href="../api/wn.html#wn.Error" title="wn.Error"><code class="xref py py-exc docutils literal notranslate"><span class="pre">wn.Error</span></code></a> is raised.</p>
 </div>
 <div class="section" id="filtering-by-lexicon">
 <h2>Filtering by Lexicon<a class="headerlink" href="#filtering-by-lexicon" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">lexicon</span></code> parameter of <a class="reference internal" href="../api/wn.html#wn.words" title="wn.words"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.words()</span></code></a>, <a class="reference internal" href="../api/wn.html#wn.senses" title="wn.senses"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.senses()</span></code></a>,
+<a class="reference internal" href="../api/wn.html#wn.synsets" title="wn.synsets"><code class="xref py py-func docutils literal notranslate"><span class="pre">wn.synsets()</span></code></a>, and <a class="reference internal" href="../api/wn.html#wn.WordNet" title="wn.WordNet"><code class="xref py py-class docutils literal notranslate"><span class="pre">WordNet</span></code></a> take a string of
+space-delimited <a class="reference internal" href="lexicons.html#lexicon-specifiers"><span class="std std-ref">lexicon specifiers</span></a>. Entries in a lexicon whose ID matches one of
+the lexicon specifiers will be returned. For these, the following
+rules are used:</p>
+<ul class="simple">
+<li><p>A full <code class="docutils literal notranslate"><span class="pre">id:version</span></code> string (e.g., <code class="docutils literal notranslate"><span class="pre">ewn:2020</span></code>) selects a specific
+lexicon</p></li>
+<li><p>Only the a lexicon <code class="docutils literal notranslate"><span class="pre">id</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">ewn</span></code>) selects the most recently
+added lexicon with that ID</p></li>
+<li><p>A star <code class="docutils literal notranslate"><span class="pre">*</span></code> may be used to match any lexicon; a star may not
+include a version</p></li>
+</ul>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'ewn:2020'</span><span class="p">)</span>
+<span class="go">[Word('ewn-chat-n'), Word('ewn-chat-v')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'wnja'</span><span class="p">)</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'chat'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'wnja frawn'</span><span class="p">)</span>
+<span class="go">[Word('frawn-lex14803'), Word('frawn-lex21897')]</span>
+</pre></div>
 </div>
-<div class="section" id="using-a-wordnet-object">
-<h2>Using a WordNet Object<a class="headerlink" href="#using-a-wordnet-object" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -225,11 +455,20 @@
         <div class="toc-tree">
           <ul>
 <li><a class="reference internal" href="#">Basic Usage</a><ul>
-<li><a class="reference internal" href="#simple-queries">Simple Queries</a></li>
-<li><a class="reference internal" href="#exploring-relations">Exploring Relations</a></li>
+<li><a class="reference internal" href="#primary-queries">Primary Queries</a><ul>
+<li><a class="reference internal" href="#searching-for-words">Searching for Words</a></li>
+<li><a class="reference internal" href="#searching-for-senses">Searching for Senses</a></li>
+<li><a class="reference internal" href="#searching-for-synsets">Searching for Synsets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#secondary-queries">Secondary Queries</a><ul>
+<li><a class="reference internal" href="#exploring-words">Exploring Words</a></li>
+<li><a class="reference internal" href="#exploring-senses">Exploring Senses</a></li>
+<li><a class="reference internal" href="#exploring-synsets">Exploring Synsets</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#filtering-by-language">Filtering by Language</a></li>
 <li><a class="reference internal" href="#filtering-by-lexicon">Filtering by Lexicon</a></li>
-<li><a class="reference internal" href="#using-a-wordnet-object">Using a WordNet Object</a></li>
 </ul>
 </li>
 </ul>

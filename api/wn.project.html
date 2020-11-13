@@ -3,11 +3,11 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="wn.similarity" href="wn.similarity.html" /><link rel="prev" title="wn.lmf" href="wn.lmf.html" />
 
-    <meta name="generator" content="sphinx-3.3.0, furo 2020.11.10.beta15"/>
+    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.10.beta15"/>
         <title>wn.project - wn 0.0.1 documentation</title>
       <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo.css?state=bdb62f10abf4abe5b5aa1c1d">
+    <link rel="stylesheet" href="../_static/styles/furo.css?state=f25be0d6e332af3aa2b3bcee">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -53,7 +53,7 @@
     <script src="../_static/language_data.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/main.js?state=bdb62f10abf4abe5b5aa1c1d"></script></head>
+    <script src="../_static/scripts/main.js?state=f25be0d6e332af3aa2b3bcee"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -173,26 +173,15 @@
 <dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Iterator[wn.project._Package]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py function">
-<dt id="wn.project.is_lexical_resource">
-<code class="sig-prename descclassname">wn.project.</code><code class="sig-name descname">is_lexical_resource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.is_lexical_resource" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></p>
+<dd class="field-even"><p>Iterator[<a class="reference internal" href="#wn.project.Package" title="wn.project.Package">wn.project.Package</a>]</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py function">
 <dt id="wn.project.is_package_directory">
 <code class="sig-prename descclassname">wn.project.</code><code class="sig-name descname">is_package_directory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.is_package_directory" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>path</em> appears to be a Wordnet Package.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
 </dd>
@@ -204,7 +193,8 @@
 <dl class="py function">
 <dt id="wn.project.is_collection_directory">
 <code class="sig-prename descclassname">wn.project.</code><code class="sig-name descname">is_collection_directory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.is_collection_directory" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return <code class="docutils literal notranslate"><span class="pre">True</span></code> if <em>path</em> appears to be a Wordnet Collection.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
 </dd>
@@ -216,10 +206,13 @@
 <dl class="py class">
 <dt id="wn.project.Package">
 <em class="property">class </em><code class="sig-prename descclassname">wn.project.</code><code class="sig-name descname">Package</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Package" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><p>This class represents a Wordnet Package – a directory with a
+resource file and optional metadata.</p>
+<dl class="py method">
 <dt id="wn.project.Package.resource_file">
 <code class="sig-name descname">resource_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Package.resource_file" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the package’s resource file.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a></p>
 </dd>
@@ -228,7 +221,8 @@
 <dl class="py method">
 <dt id="wn.project.Package.readme">
 <code class="sig-name descname">readme</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Package.readme" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the README file, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none exists.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a>]</p>
 </dd>
@@ -237,7 +231,8 @@
 <dl class="py method">
 <dt id="wn.project.Package.license">
 <code class="sig-name descname">license</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Package.license" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the license, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none exists.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a>]</p>
 </dd>
@@ -246,7 +241,8 @@
 <dl class="py method">
 <dt id="wn.project.Package.citation">
 <code class="sig-name descname">citation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Package.citation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the citation, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none exists.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a>]</p>
 </dd>
@@ -256,10 +252,13 @@
 <dl class="py class">
 <dt id="wn.project.Collection">
 <em class="property">class </em><code class="sig-prename descclassname">wn.project.</code><code class="sig-name descname">Collection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Collection" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><p>This class represents a Wordnet Collection – a directory with one
+or more Wordnet Packages and optional metadata.</p>
+<dl class="py method">
 <dt id="wn.project.Collection.packages">
 <code class="sig-name descname">packages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Collection.packages" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of packages in the collection.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.project.Package" title="wn.project.Package">wn.project.Package</a>]</p>
 </dd>
@@ -268,7 +267,8 @@
 <dl class="py method">
 <dt id="wn.project.Collection.readme">
 <code class="sig-name descname">readme</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Collection.readme" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the README file, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none exists.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a>]</p>
 </dd>
@@ -277,7 +277,8 @@
 <dl class="py method">
 <dt id="wn.project.Collection.license">
 <code class="sig-name descname">license</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Collection.license" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the license, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none exists.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a>]</p>
 </dd>
@@ -286,7 +287,8 @@
 <dl class="py method">
 <dt id="wn.project.Collection.citation">
 <code class="sig-name descname">citation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.project.Collection.citation" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the path of the citation, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none exists.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a>]</p>
 </dd>
