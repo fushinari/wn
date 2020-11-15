@@ -3,9 +3,9 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="wn.lmf" href="wn.lmf.html" /><link rel="prev" title="The Structure of a Wordnet" href="../guides/wordnet.html" />
 
-    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.14.beta16"/>
+    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.15.beta17"/>
         <title>wn - wn 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?state=6a0ae0e2909035eae881556e">
+      <link rel="stylesheet" href="../_static/styles/furo.css?state=f3006e18d762ed6036e34c43">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -46,14 +46,15 @@
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=6a0ae0e2909035eae881556e">
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script><script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/main.js?state=6a0ae0e2909035eae881556e"></script></head>
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=f3006e18d762ed6036e34c43">
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script defer src="../_static/jquery.js"></script>
+    <script defer src="../_static/underscore.js"></script>
+    <script defer src="../_static/doctools.js"></script>
+    <script defer src="../_static/language_data.js"></script>
+    <script defer src="../_static/clipboard.min.js"></script>
+    <script defer src="../_static/copybutton.js"></script>
+    <script defer src="../_static/scripts/main.js?state=f3006e18d762ed6036e34c43"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -119,9 +120,8 @@
   <input class="sidebar-search" placeholder="Search" name="q">
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
-</form><div class="sidebar-scroll">
-  <div class="sidebar-tree">
-    <p class="caption"><span class="caption-text">Guides</span></p>
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../guides/setup.html">Installation and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/lexicons.html">Working with Lexicons</a></li>
@@ -137,9 +137,7 @@
 <li class="toctree-l1"><a class="reference internal" href="wn.similarity.html">wn.similarity</a></li>
 </ul>
 
-  </div>
-  
-  
+</div>
 </div>
       </div>
       
@@ -389,7 +387,21 @@ words match, <cite>None</cite> is returned.</p>
 <dl class="py class">
 <dt id="wn.WordNet">
 <em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">WordNet</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">expand</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class for interacting with WordNet data.</p>
+<dd><p>Class for interacting with wordnet data.</p>
+<p>A wordnet object acts essentially as a filter by first selecting
+matching lexicons and then searching only within those lexicons
+for later queries. On instantiation, a <em>lgcode</em> argument is a
+BCP47 language code that restricts the selected lexicons to those
+whose language matches the given code. A <em>lexicon</em> argument is a
+space-separated list of lexicon specifiers that more directly
+select lexicons by their ID and version; this is preferable when
+there are multiple lexicons in the same language or multiple
+version with the same ID.</p>
+<p>Some wordnets were created by translating the words from a larger
+wordnet, namely the Princeton WordNet, and then relying on the
+larger wordnet for structural relations. An <em>expand</em> argument is a
+second space-separated list of lexicon specifiers which are used
+for traversing relations, but not as the results of queries.</p>
 <dl class="py attribute">
 <dt id="wn.WordNet.lgcode">
 <code class="sig-name descname">lgcode</code><a class="headerlink" href="#wn.WordNet.lgcode" title="Permalink to this definition">¶</a></dt>
@@ -399,7 +411,8 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.word">
 <code class="sig-name descname">word</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.word" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the first word in this wordnet with identifier <em>id</em>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
 </dd>
@@ -411,7 +424,12 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.words">
 <code class="sig-name descname">words</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.words" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of matching words in this wordnet.</p>
+<p>Without any arguments, this function returns all words in the
+wordnet’s selected lexicons. A <em>form</em> argument restricts the
+words to those matching the given word form, and <em>pos</em>
+restricts words by their part of speech.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
@@ -426,7 +444,8 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.sense">
 <code class="sig-name descname">sense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.sense" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the first sense in this wordnet with identifier <em>id</em>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
 </dd>
@@ -438,7 +457,12 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.senses">
 <code class="sig-name descname">senses</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.senses" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of matching senses in this wordnet.</p>
+<p>Without any arguments, this function returns all senses in the
+wordnet’s selected lexicons. A <em>form</em> argument restricts the
+senses to those whose word matches the given word form, and
+<em>pos</em> restricts senses by their word’s part of speech.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
@@ -453,7 +477,8 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.synset">
 <code class="sig-name descname">synset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.synset" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the first synset in this wordnet with identifier <em>id</em>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
 </dd>
@@ -465,7 +490,15 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.synsets">
 <code class="sig-name descname">synsets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">pos</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ili</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.synsets" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of matching synsets in this wordnet.</p>
+<p>Without any arguments, this function returns all synsets in
+the wordnet’s selected lexicons. A <em>form</em> argument restricts
+synsets to those whose member words match the given word
+form. A <em>pos</em> argument restricts synsets to those with the
+given part of speech. An <em>ili</em> argument restricts synsets to
+those with the given interlingual index; generally this should
+select a unique synset within a single lexicon.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>form</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
@@ -481,11 +514,13 @@ instantiation, if any.</p>
 <dl class="py method">
 <dt id="wn.WordNet.lexicons">
 <code class="sig-name descname">lexicons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.lexicons" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the list of lexicons covered by this wordnet.</p>
+</dd></dl>
 <dl class="py method">
 <dt id="wn.WordNet.expanded_lexicons">
 <code class="sig-name descname">expanded_lexicons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.WordNet.expanded_lexicons" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the list of expand lexicons for this wordnet.</p>
+</dd></dl>
 </dd></dl>
 </div>
 <div class="section" id="the-word-class">
