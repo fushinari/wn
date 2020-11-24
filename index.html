@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation and Configuration" href="guides/setup.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="FAQ" href="faq.html" />
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>Home - wn 0.0.1 documentation</title>
-      <link rel="stylesheet" href="_static/styles/furo.css?state=594682ddf694c3b540bfa6fe">
+      <link rel="stylesheet" href="_static/styles/furo.css?state=5814e643c059abaaa9e591f4">
     <link rel="stylesheet" href="_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css">
     
@@ -46,7 +46,7 @@
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" href="_static/styles/furo-extensions.css?state=594682ddf694c3b540bfa6fe">
+    <link rel="stylesheet" href="_static/styles/furo-extensions.css?state=5814e643c059abaaa9e591f4">
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
     <script defer src="_static/jquery.js"></script>
     <script defer src="_static/underscore.js"></script>
@@ -54,7 +54,7 @@
     <script defer src="_static/language_data.js"></script>
     <script defer src="_static/clipboard.min.js"></script>
     <script defer src="_static/copybutton.js"></script>
-    <script defer src="_static/scripts/main.js?state=594682ddf694c3b540bfa6fe"></script></head>
+    <script defer src="_static/scripts/main.js?state=5814e643c059abaaa9e591f4"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -121,13 +121,17 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Guides</span></p>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guides/setup.html">Installation and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/lexicons.html">Working with Lexicons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/basic.html">Basic Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/interlingual.html">Interlingual Queries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/wordnet.html">The Structure of a Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guides/nltk-migration.html">Migrating from the NLTK</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -179,6 +183,18 @@ consistency and efficient queries</p></li>
 <div class="section" id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#is-wn-related-to-the-nltk-s-nltk-corpus-wordnet-module">Is Wn related to the NLTK’s <cite>nltk.corpus.wordnet</cite> module?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#is-wn-compatible-with-the-nltk-s-module">Is Wn compatible with the NLTK’s module?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#where-are-the-lemma-objects-what-are-word-and-sense-objects">Where are the <code class="docutils literal notranslate"><span class="pre">Lemma</span></code> objects? What are <code class="docutils literal notranslate"><span class="pre">Word</span></code> and <code class="docutils literal notranslate"><span class="pre">Sense</span></code> objects?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-don-t-all-wordnets-share-the-same-synsets">Why don’t all wordnets share the same synsets?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#why-does-wn-s-database-get-so-big">Why does Wn’s database get so big?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guides/setup.html">Installation and Configuration</a><ul>
@@ -216,6 +232,11 @@ consistency and efficient queries</p></li>
 <li class="toctree-l2"><a class="reference internal" href="guides/wordnet.html#other-information">Other Information</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="guides/nltk-migration.html">Migrating from the NLTK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guides/nltk-migration.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guides/nltk-migration.html#equivalent-operations">Equivalent Operations</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -227,12 +248,12 @@ consistency and efficient queries</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="guides/setup.html">
+          <a class="next-page" href="faq.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Installation and Configuration</div>
+                <div class="title">FAQ</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>

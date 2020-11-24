@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with Lexicons" href="lexicons.html" /><link rel="prev" title="Wn Documentation" href="../index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Working with Lexicons" href="lexicons.html" /><link rel="prev" title="FAQ" href="../faq.html" />
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>Installation and Configuration - wn 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?state=1140be77a7ca58755bcc7f38">
+      <link rel="stylesheet" href="../_static/styles/furo.css?state=471fd833859b7d9fb7217b90">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -46,7 +46,7 @@
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=1140be77a7ca58755bcc7f38">
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=471fd833859b7d9fb7217b90">
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script defer src="../_static/jquery.js"></script>
     <script defer src="../_static/underscore.js"></script>
@@ -54,7 +54,7 @@
     <script defer src="../_static/language_data.js"></script>
     <script defer src="../_static/clipboard.min.js"></script>
     <script defer src="../_static/copybutton.js"></script>
-    <script defer src="../_static/scripts/main.js?state=1140be77a7ca58755bcc7f38"></script></head>
+    <script defer src="../_static/scripts/main.js?state=471fd833859b7d9fb7217b90"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -121,13 +121,17 @@
   <input type="hidden" name="check_keywords" value="yes">
   <input type="hidden" name="area" value="default">
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption"><span class="caption-text">Guides</span></p>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Guides</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Installation and Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lexicons.html">Working with Lexicons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="basic.html">Basic Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interlingual.html">Interlingual Queries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wordnet.html">The Structure of a Wordnet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nltk-migration.html">Migrating from the NLTK</a></li>
 </ul>
 <p class="caption"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -186,10 +190,10 @@ of the URL so that Wn can avoid downloading the same file twice.</p>
 </div>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="code python docutils literal notranslate"><span class="name"><span class="pre">wn</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">config</span></span></code> object contains the paths Wn uses for local
+<p>The <code class="code highlight python docutils literal notranslate"><span class="n"><span class="pre">wn</span></span><span class="o"><span class="pre">.</span></span><span class="n"><span class="pre">config</span></span></code> object contains the paths Wn uses for local
 storage and information about resources available on the web. To
 change the directory Wn uses for storing data locally, modify the
-<code class="code python docutils literal notranslate"><span class="name"><span class="pre">wn</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">config</span></span><span class="operator"><span class="pre">.</span></span><span class="name"><span class="pre">data_directory</span></span></code> member:</p>
+<code class="code highlight python docutils literal notranslate"><span class="n"><span class="pre">wn</span></span><span class="o"><span class="pre">.</span></span><span class="n"><span class="pre">config</span></span><span class="o"><span class="pre">.</span></span><span class="n"><span class="pre">data_directory</span></span></code> member:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">wn</span>
 <span class="n">wn</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">data_directory</span> <span class="o">=</span> <span class="s1">'~/Projects/wn_data'</span>
 </pre></div>
@@ -250,14 +254,14 @@ reflected without having to reinstall):</p>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../index.html">
+          <a class="prev-page" href="../faq.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">FAQ</div>
                 
               </div>
             </a>
