@@ -5,7 +5,7 @@
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>wn - wn 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?state=aa79396e8ddcba7fed7c598a">
+      <link rel="stylesheet" href="../_static/styles/furo.css?state=28b167eb13f47bb77350c637">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -46,7 +46,7 @@
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=aa79396e8ddcba7fed7c598a">
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=28b167eb13f47bb77350c637">
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script defer src="../_static/jquery.js"></script>
     <script defer src="../_static/underscore.js"></script>
@@ -54,7 +54,7 @@
     <script defer src="../_static/language_data.js"></script>
     <script defer src="../_static/clipboard.min.js"></script>
     <script defer src="../_static/copybutton.js"></script>
-    <script defer src="../_static/scripts/main.js?state=aa79396e8ddcba7fed7c598a"></script></head>
+    <script defer src="../_static/scripts/main.js?state=28b167eb13f47bb77350c637"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -663,7 +663,8 @@ select a unique synset within a single lexicon.</p>
 <dl class="py class">
 <dt id="wn.Sense">
 <em class="property">class </em><code class="sig-prename descclassname">wn.</code><code class="sig-name descname">Sense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">entry_id</span></em>, <em class="sig-param"><span class="n">synset_id</span></em>, <em class="sig-param"><span class="n">_lexid</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_id</span><span class="o">=</span><span class="default_value">0</span></em>, <em class="sig-param"><span class="n">_wordnet</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><p>Class for modeling wordnet senses.</p>
+<dl class="py attribute">
 <dt id="wn.Sense.id">
 <code class="sig-name descname">id</code><a class="headerlink" href="#wn.Sense.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>The identifier used within a lexicon.</p>
@@ -671,7 +672,13 @@ select a unique synset within a single lexicon.</p>
 <dl class="py method">
 <dt id="wn.Sense.word">
 <code class="sig-name descname">word</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.word" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the word of the sense.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'spigot'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">word</span><span class="p">()</span>
+<span class="go">Word('pwn-spigot-n')</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a></p>
 </dd>
@@ -680,7 +687,13 @@ select a unique synset within a single lexicon.</p>
 <dl class="py method">
 <dt id="wn.Sense.synset">
 <code class="sig-name descname">synset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.synset" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the synset of the sense.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'spigot'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">synset</span><span class="p">()</span>
+<span class="go">Synset('pwn-03325088-n')</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a></p>
 </dd>
@@ -689,7 +702,20 @@ select a unique synset within a single lexicon.</p>
 <dl class="py method">
 <dt id="wn.Sense.get_related">
 <code class="sig-name descname">get_related</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.get_related" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return a list of related senses.</p>
+<p>One or more relation types should be passed as arguments which
+determine the kind of relations returned.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">physics</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'physics'</span><span class="p">,</span> <span class="n">lexicon</span><span class="o">=</span><span class="s1">'ewn'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">sense</span> <span class="ow">in</span> <span class="n">physics</span><span class="o">.</span><span class="n">get_related</span><span class="p">(</span><span class="s1">'has_domain_topic'</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">sense</span><span class="o">.</span><span class="n">word</span><span class="p">()</span><span class="o">.</span><span class="n">lemma</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">coherent</span>
+<span class="go">chaotic</span>
+<span class="go">incoherent</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
 </dd>
@@ -701,7 +727,8 @@ select a unique synset within a single lexicon.</p>
 <dl class="py method">
 <dt id="wn.Sense.get_related_synsets">
 <code class="sig-name descname">get_related_synsets</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.get_related_synsets" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return a list of related synsets.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
 </dd>
@@ -744,17 +771,23 @@ select a unique synset within a single lexicon.</p>
 <dl class="py method">
 <dt id="wn.Sense.translate">
 <code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Sense.translate" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return a list of translated senses.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
-<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – if specified, translate to senses with the language code</p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – if specified, translate to senses in the target lexicon(s)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
 </dd>
 </dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'petiole'</span><span class="p">,</span> <span class="n">lgcode</span><span class="o">=</span><span class="s1">'en'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'pt'</span><span class="p">)</span>
+<span class="go">[Sense('porwn-lex66080--13131618-n')]</span>
+</pre></div>
+</div>
 </dd></dl>
 </dd></dl>
 </div>
