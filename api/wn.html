@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="wn.lmf" href="wn.lmf.html" /><link rel="prev" title="Migrating from the NLTK" href="../guides/nltk-migration.html" />
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
-        <title>wn - wn 0.0.1 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?state=28b167eb13f47bb77350c637">
+        <title>wn - wn 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/styles/furo.css?state=f66198eab60034da3fa177ae">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -46,7 +46,7 @@
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=28b167eb13f47bb77350c637">
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=f66198eab60034da3fa177ae">
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script defer src="../_static/jquery.js"></script>
     <script defer src="../_static/underscore.js"></script>
@@ -54,7 +54,7 @@
     <script defer src="../_static/language_data.js"></script>
     <script defer src="../_static/clipboard.min.js"></script>
     <script defer src="../_static/copybutton.js"></script>
-    <script defer src="../_static/scripts/main.js?state=28b167eb13f47bb77350c637"></script></head>
+    <script defer src="../_static/scripts/main.js?state=f66198eab60034da3fa177ae"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -102,7 +102,7 @@
       </label>
     </div>
     <div class="header-center">
-      <a href="../index.html"><div class="brand">wn 0.0.1 documentation</div></a>
+      <a href="../index.html"><div class="brand">wn 0.1.0 documentation</div></a>
     </div>
     <div class="header-right">
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
@@ -115,7 +115,7 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
-  <span class="sidebar-brand-text">wn 0.0.1 documentation</span>
+  <span class="sidebar-brand-text">wn 0.1.0 documentation</span>
 </a><form class="sidebar-search-container" method="get" action="../search.html">
   <input class="sidebar-search" placeholder="Search" name="q">
   <input type="hidden" name="check_keywords" value="yes">
@@ -784,8 +784,10 @@ determine the kind of relations returned.</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'petiole'</span><span class="p">,</span> <span class="n">lgcode</span><span class="o">=</span><span class="s1">'en'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'pt'</span><span class="p">)</span>
-<span class="go">[Sense('porwn-lex66080--13131618-n')]</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">en</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">senses</span><span class="p">(</span><span class="s1">'petiole'</span><span class="p">,</span> <span class="n">lgcode</span><span class="o">=</span><span class="s1">'en'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pt</span> <span class="o">=</span> <span class="n">en</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="s1">'pt'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pt</span><span class="o">.</span><span class="n">word</span><span class="p">()</span><span class="o">.</span><span class="n">lemma</span><span class="p">()</span>
+<span class="go">'pecíolo'</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -815,7 +817,13 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.definition">
 <code class="sig-name descname">definition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.definition" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the first definition found for the synset.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'cartwheel'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">definition</span><span class="p">()</span>
+<span class="go">'a wheel that has wooden spokes and a metal rim'</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Optional[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
 </dd>
@@ -824,7 +832,13 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.examples">
 <code class="sig-name descname">examples</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.examples" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of examples for the synset.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'orbital'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">examples</span><span class="p">()</span>
+<span class="go">['"orbital revolution"', '"orbital velocity"']</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
 </dd>
@@ -833,7 +847,13 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.senses">
 <code class="sig-name descname">senses</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.senses" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of sense members of the synset.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'umbrella'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">senses</span><span class="p">()</span>
+<span class="go">[Sense('ewn-umbrella-n-04514450-01')]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Sense" title="wn.Sense">wn.Sense</a>]</p>
 </dd>
@@ -842,7 +862,13 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.words">
 <code class="sig-name descname">words</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.words" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of words linked by the synset’s senses.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'exclusive'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
+<span class="go">[Word('ewn-scoop-n'), Word('ewn-exclusive-n')]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Word" title="wn.Word">wn.Word</a>]</p>
 </dd>
@@ -851,7 +877,13 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.lemmas">
 <code class="sig-name descname">lemmas</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.lemmas" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of lemmas of words for the synset.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'exclusive'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">words</span><span class="p">()</span>
+<span class="go">['scoop', 'exclusive']</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a>]</p>
 </dd>
@@ -860,7 +892,10 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.hypernyms">
 <code class="sig-name descname">hypernyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.hypernyms" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of synsets related by any hypernym relation.</p>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">hypernym</span></code> and <code class="docutils literal notranslate"><span class="pre">instance_hypernym</span></code> relations are
+traversed.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
 </dd>
@@ -869,7 +904,10 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.hyponyms">
 <code class="sig-name descname">hyponyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.hyponyms" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of synsets related by any hyponym relation.</p>
+<p>Both the <code class="docutils literal notranslate"><span class="pre">hyponym</span></code> and <code class="docutils literal notranslate"><span class="pre">instance_hyponym</span></code> relations are
+traversed.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
 </dd>
@@ -878,7 +916,11 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.holonyms">
 <code class="sig-name descname">holonyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.holonyms" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of synsets related by any holonym relation.</p>
+<p>Any of the following relations are traversed: <code class="docutils literal notranslate"><span class="pre">holonym</span></code>,
+<code class="docutils literal notranslate"><span class="pre">holo_location</span></code>, <code class="docutils literal notranslate"><span class="pre">holo_member</span></code>, <code class="docutils literal notranslate"><span class="pre">holo_part</span></code>,
+<code class="docutils literal notranslate"><span class="pre">holo_portion</span></code>, <code class="docutils literal notranslate"><span class="pre">holo_substance</span></code>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
 </dd>
@@ -887,7 +929,11 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.meronyms">
 <code class="sig-name descname">meronyms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.meronyms" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of synsets related by any meronym relation.</p>
+<p>Any of the following relations are traversed: <code class="docutils literal notranslate"><span class="pre">meronym</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mero_location</span></code>, <code class="docutils literal notranslate"><span class="pre">mero_member</span></code>, <code class="docutils literal notranslate"><span class="pre">mero_part</span></code>,
+<code class="docutils literal notranslate"><span class="pre">mero_portion</span></code>, <code class="docutils literal notranslate"><span class="pre">mero_substance</span></code>.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
 </dd>
@@ -896,7 +942,36 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.hypernym_paths">
 <code class="sig-name descname">hypernym_paths</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">simulate_root</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.hypernym_paths" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the list of hypernym paths to a root synset.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'dog'</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="s1">'n'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hypernym_paths</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ss</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="nb">print</span><span class="p">(</span><span class="s1">' '</span> <span class="o">*</span> <span class="n">i</span><span class="p">,</span> <span class="n">ss</span><span class="p">,</span> <span class="n">ss</span><span class="o">.</span><span class="n">lemmas</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="go"> Synset('pwn-02083346-n') canine</span>
+<span class="go">  Synset('pwn-02075296-n') carnivore</span>
+<span class="go">   Synset('pwn-01886756-n') eutherian mammal</span>
+<span class="go">    Synset('pwn-01861778-n') mammalian</span>
+<span class="go">     Synset('pwn-01471682-n') craniate</span>
+<span class="go">      Synset('pwn-01466257-n') chordate</span>
+<span class="go">       Synset('pwn-00015388-n') animal</span>
+<span class="go">        Synset('pwn-00004475-n') organism</span>
+<span class="go">         Synset('pwn-00004258-n') animate thing</span>
+<span class="go">          Synset('pwn-00003553-n') unit</span>
+<span class="go">           Synset('pwn-00002684-n') object</span>
+<span class="go">            Synset('pwn-00001930-n') physical entity</span>
+<span class="go">             Synset('pwn-00001740-n') entity</span>
+<span class="go"> Synset('pwn-01317541-n') domesticated animal</span>
+<span class="go">  Synset('pwn-00015388-n') animal</span>
+<span class="go">   Synset('pwn-00004475-n') organism</span>
+<span class="go">    Synset('pwn-00004258-n') animate thing</span>
+<span class="go">     Synset('pwn-00003553-n') unit</span>
+<span class="go">      Synset('pwn-00002684-n') object</span>
+<span class="go">       Synset('pwn-00001930-n') physical entity</span>
+<span class="go">        Synset('pwn-00001740-n') entity</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>simulate_root</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p>
 </dd>
@@ -908,11 +983,13 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.lowest_common_hypernyms">
 <code class="sig-name descname">lowest_common_hypernyms</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other</span></em>, <em class="sig-param"><span class="n">simulate_root</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.lowest_common_hypernyms" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return the common hypernyms furthest from the root.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>other</strong> (<a class="reference internal" href="#wn.Synset" title="wn.Synset"><em>wn.Synset</em></a>) – </p></li>
-<li><p><strong>simulate_root</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – </p></li>
+<li><p><strong>other</strong> (<a class="reference internal" href="#wn.Synset" title="wn.Synset"><em>wn.Synset</em></a>) – synset that is a hyponym of any shared hypernyms</p></li>
+<li><p><strong>simulate_root</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><em>bool</em></a>) – if <code class="code highlight python docutils literal notranslate"><span class="kc"><span class="pre">True</span></span></code>, ensure any two synsets
+always share a hypernym by positing a fake root node</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -966,17 +1043,25 @@ determine the kind of relations returned.</p>
 <dl class="py method">
 <dt id="wn.Synset.translate">
 <code class="sig-name descname">translate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lgcode</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lexicon</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.Synset.translate" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Return a list of translated synsets.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
-<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p></li>
+<li><p><strong>lgcode</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – if specified, translate to synsets with the language code</p></li>
+<li><p><strong>lexicon</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – if specified, translate to synsets in the target lexicon(s)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>List[<a class="reference internal" href="#wn.Synset" title="wn.Synset">wn.Synset</a>]</p>
 </dd>
 </dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">es</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="s1">'araña'</span><span class="p">,</span> <span class="n">lgcode</span><span class="o">=</span><span class="s1">'es'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">en</span> <span class="o">=</span> <span class="n">es</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">lexicon</span><span class="o">=</span><span class="s1">'ewn'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">en</span><span class="o">.</span><span class="n">lemmas</span><span class="p">()</span>
+<span class="go">['spider']</span>
+</pre></div>
+</div>
 </dd></dl>
 </dd></dl>
 </div>
@@ -989,39 +1074,178 @@ determine the kind of relations returned.</p>
 <dl class="py attribute">
 <dt id="wn.Lexicon.id">
 <code class="sig-name descname">id</code><a class="headerlink" href="#wn.Lexicon.id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The lexicon’s identifier.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.label">
 <code class="sig-name descname">label</code><a class="headerlink" href="#wn.Lexicon.label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The full name of lexicon.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.language">
 <code class="sig-name descname">language</code><a class="headerlink" href="#wn.Lexicon.language" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The BCP 47 language code of lexicon.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.email">
 <code class="sig-name descname">email</code><a class="headerlink" href="#wn.Lexicon.email" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The email address of the wordnet maintainer.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.license">
 <code class="sig-name descname">license</code><a class="headerlink" href="#wn.Lexicon.license" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The URL or name of the wordnet’s license.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.version">
 <code class="sig-name descname">version</code><a class="headerlink" href="#wn.Lexicon.version" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The version string of the resource.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.url">
 <code class="sig-name descname">url</code><a class="headerlink" href="#wn.Lexicon.url" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The project URL of the wordnet.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.citation">
 <code class="sig-name descname">citation</code><a class="headerlink" href="#wn.Lexicon.citation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The canonical citation for the project.</p>
+</dd></dl>
 <dl class="py attribute">
 <dt id="wn.Lexicon.metadata">
 <code class="sig-name descname">metadata</code><a class="headerlink" href="#wn.Lexicon.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Any extra metadata for the lexicon.</p>
+</dd></dl>
+</dd></dl>
+</div>
+<div class="section" id="the-wn-config-object">
+<h2>The wn.config Object<a class="headerlink" href="#the-wn-config-object" title="Permalink to this headline">¶</a></h2>
+<p>Wn’s data storage and retrieval can be configured through the
+<a class="reference internal" href="#wn.config" title="wn.config"><code class="xref py py-data docutils literal notranslate"><span class="pre">wn.config</span></code></a> object.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../guides/setup.html"><span class="doc">Installation and Configuration</span></a> describes how to configure Wn using the
+<a class="reference internal" href="#wn.config" title="wn.config"><code class="xref py py-data docutils literal notranslate"><span class="pre">wn.config</span></code></a> instance.</p>
+</div>
+<dl class="py data">
+<dt id="wn.config">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">config</code><em class="property"> = &lt;wn._config.WNConfig object&gt;</em><a class="headerlink" href="#wn.config" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+<p>It is an instance of the <a class="reference internal" href="#wn._config.WNConfig" title="wn._config.WNConfig"><code class="xref py py-class docutils literal notranslate"><span class="pre">WNConfig</span></code></a> class, which is
+defined in a non-public module and is not meant to be instantiated
+directly. Configuration should occur through the single
+<a class="reference internal" href="#wn.config" title="wn.config"><code class="xref py py-data docutils literal notranslate"><span class="pre">wn.config</span></code></a> instance.</p>
+<dl class="py class">
+<dt id="wn._config.WNConfig">
+<em class="property">class </em><code class="sig-prename descclassname">wn._config.</code><code class="sig-name descname">WNConfig</code><a class="headerlink" href="#wn._config.WNConfig" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="wn._config.WNConfig.data_directory">
+<code class="sig-name descname">data_directory</code><a class="headerlink" href="#wn._config.WNConfig.data_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The file system directory where Wn’s data is stored.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="wn._config.WNConfig.database_path">
+<code class="sig-name descname">database_path</code><a class="headerlink" href="#wn._config.WNConfig.database_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the database file.</p>
+</dd></dl>
+<dl class="py attribute">
+<dt id="wn._config.WNConfig.downloads_directory">
+<code class="sig-name descname">downloads_directory</code><a class="headerlink" href="#wn._config.WNConfig.downloads_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>The file system directory where downloads are cached.</p>
+</dd></dl>
+<dl class="py method">
+<dt id="wn._config.WNConfig.add_project">
+<code class="sig-name descname">add_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">language</span></em>, <em class="sig-param"><span class="n">license</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.add_project" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new wordnet project to the index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – short identifier of the project</p></li>
+<li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – full name of the project</p></li>
+<li><p><strong>language</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <a class="reference external" href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> language code of the resource</p></li>
+<li><p><strong>license</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – link or name of the project’s default license</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn._config.WNConfig.add_project_version">
+<code class="sig-name descname">add_project_version</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">version</span></em>, <em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">license</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.add_project_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new resource version for a project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – short identifier of the project</p></li>
+<li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – version string of the resource</p></li>
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – web address of the resource</p></li>
+<li><p><strong>license</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – link or name of the resource’s license; if not
+given, the project’s default license will be used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn._config.WNConfig.get_project_info">
+<code class="sig-name descname">get_project_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.get_project_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of information about an indexed project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – a lexicon specifier</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Dict</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn._config.WNConfig.update">
+<code class="sig-name descname">update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the configuration with items in <em>data</em>.</p>
+<p>Items are only inserted or replaced, not deleted. If a project
+index is provided in the <code class="docutils literal notranslate"><span class="pre">"index"</span></code> key, then either the
+project must not already be indexed or any project fields
+(label, language, or license) that are specified must be equal
+to the indexed project.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt id="wn._config.WNConfig.load_index">
+<code class="sig-name descname">load_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.load_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load and update with the project index at <em>path</em>.</p>
+<p>The project index is a <a class="reference external" href="https://toml.io">TOML</a> file containing project and
+version information. For example:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[ewn]</span>
+  <span class="n">label</span> <span class="o">=</span> <span class="s">"Open English WordNet"</span>
+  <span class="n">language</span> <span class="o">=</span> <span class="s">"en"</span>
+  <span class="n">license</span> <span class="o">=</span> <span class="s">"https://creativecommons.org/licenses/by/4.0/"</span>
+  <span class="k">[ewn.versions.2019]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">"https://en-word.net/static/english-wordnet-2019.xml.gz"</span>
+  <span class="k">[ewn.versions.2020]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s">"https://en-word.net/static/english-wordnet-2020.xml.gz"</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> (<em>Union</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)"><em>pathlib.Path</em></a><em>]</em>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
 </dd></dl>
 </div>
 <div class="section" id="exceptions">
@@ -1091,6 +1315,7 @@ determine the kind of relations returned.</p>
 <li><a class="reference internal" href="#the-sense-class">The Sense Class</a></li>
 <li><a class="reference internal" href="#the-synset-class">The Synset Class</a></li>
 <li><a class="reference internal" href="#the-lexicon-class">The Lexicon Class</a></li>
+<li><a class="reference internal" href="#the-wn-config-object">The wn.config Object</a></li>
 <li><a class="reference internal" href="#exceptions">Exceptions</a></li>
 </ul>
 </li>
