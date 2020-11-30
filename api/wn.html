@@ -3,9 +3,9 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="wn.lmf" href="wn.lmf.html" /><link rel="prev" title="Migrating from the NLTK" href="../guides/nltk-migration.html" />
 
-    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
+    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.27.beta19"/>
         <title>wn - wn 0.1.1 documentation</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?state=12958e9925209b07e78d1ea9">
+      <link rel="stylesheet" href="../_static/styles/furo.css?digest=4d4607a28768ea509d1701e6fba1bca6c595da19">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -46,7 +46,7 @@
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=12958e9925209b07e78d1ea9">
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?digest=26485485040e7aaf717c13fd0188a5ad2c2deb60">
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script defer src="../_static/jquery.js"></script>
     <script defer src="../_static/underscore.js"></script>
@@ -54,7 +54,7 @@
     <script defer src="../_static/language_data.js"></script>
     <script defer src="../_static/clipboard.min.js"></script>
     <script defer src="../_static/copybutton.js"></script>
-    <script defer src="../_static/scripts/main.js?state=12958e9925209b07e78d1ea9"></script></head>
+    <script defer src="../_static/scripts/main.js?digest=1e13a99a5b478789393b59468e7cadf60869ce3f"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -115,7 +115,9 @@
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
+  
   <span class="sidebar-brand-text">wn 0.1.1 documentation</span>
+  
 </a><form class="sidebar-search-container" method="get" action="../search.html">
   <input class="sidebar-search" placeholder="Search" name="q">
   <input type="hidden" name="check_keywords" value="yes">
@@ -157,8 +159,8 @@
         <div class="section" id="module-wn">
 <span id="wn"></span><h1>wn<a class="headerlink" href="#module-wn" title="Permalink to this headline">¶</a></h1>
 <p>Wordnet Interface.</p>
-<div class="section" id="lexicon-management-functions">
-<h2>Lexicon Management Functions<a class="headerlink" href="#lexicon-management-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="project-management-functions">
+<h2>Project Management Functions<a class="headerlink" href="#project-management-functions" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt id="wn.download">
 <code class="sig-prename descclassname">wn.</code><code class="sig-name descname">download</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_or_url</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn.download" title="Permalink to this definition">¶</a></dt>
@@ -217,6 +219,27 @@ will be used instead.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt id="wn.projects">
+<code class="sig-prename descclassname">wn.</code><code class="sig-name descname">projects</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#wn.projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of indexed projects.</p>
+<p>This returns the same dictionaries of information as
+<a class="reference internal" href="#wn._config.WNConfig.get_project_info" title="wn._config.WNConfig.get_project_info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wn.config.get_project_info</span></code></a>, but for all indexed
+projects.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">infos</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">projects</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">infos</span><span class="p">)</span>
+<span class="go">36</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'label'</span><span class="p">]</span>
+<span class="go">'Open English WordNet'</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[Dict]</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1156,12 +1179,12 @@ directly. Configuration should occur through the single
 </dd></dl>
 <dl class="py method">
 <dt id="wn._config.WNConfig.add_project">
-<code class="sig-name descname">add_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">language</span></em>, <em class="sig-param"><span class="n">license</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.add_project" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_project</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">label</span></em>, <em class="sig-param"><span class="n">language</span></em>, <em class="sig-param"><span class="n">license</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.add_project" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new wordnet project to the index.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – short identifier of the project</p></li>
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – short identifier of the project</p></li>
 <li><p><strong>label</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – full name of the project</p></li>
 <li><p><strong>language</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – <a class="reference external" href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> language code of the resource</p></li>
 <li><p><strong>license</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – link or name of the project’s default license</p></li>
@@ -1174,12 +1197,12 @@ directly. Configuration should occur through the single
 </dd></dl>
 <dl class="py method">
 <dt id="wn._config.WNConfig.add_project_version">
-<code class="sig-name descname">add_project_version</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">version</span></em>, <em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">license</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.add_project_version" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">add_project_version</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id</span></em>, <em class="sig-param"><span class="n">version</span></em>, <em class="sig-param"><span class="n">url</span></em>, <em class="sig-param"><span class="n">license</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.add_project_version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a new resource version for a project.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – short identifier of the project</p></li>
+<li><p><strong>id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – short identifier of the project</p></li>
 <li><p><strong>version</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – version string of the resource</p></li>
 <li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – web address of the resource</p></li>
 <li><p><strong>license</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – link or name of the resource’s license; if not
@@ -1195,12 +1218,38 @@ given, the project’s default license will be used.</p></li>
 <dt id="wn._config.WNConfig.get_project_info">
 <code class="sig-name descname">get_project_info</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.get_project_info" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a dictionary of information about an indexed project.</p>
+<p>If the project has been downloaded and cached, the <code class="docutils literal notranslate"><span class="pre">"cache"</span></code>
+key will point to the path of the cached file, otherwise its
+value is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>arg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – a lexicon specifier</p>
+<dd class="field-odd"><p><strong>arg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – a project specifier</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>Dict</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">info</span> <span class="o">=</span> <span class="n">wn</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get_project_info</span><span class="p">(</span><span class="s1">'pwn:3.0'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">info</span><span class="p">[</span><span class="s1">'label'</span><span class="p">]</span>
+<span class="go">'Princeton WordNet'</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="py method">
+<dt id="wn._config.WNConfig.get_cache_path">
+<code class="sig-name descname">get_cache_path</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="headerlink" href="#wn._config.WNConfig.get_cache_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the path for caching <em>arg</em>.</p>
+<p>The <em>arg</em> argument may be either a URL or a project specifier
+that gets passed to <a class="reference internal" href="#wn._config.WNConfig.get_project_info" title="wn._config.WNConfig.get_project_info"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_project_info()</span></code></a>. Note that this
+is just a path operation and does not signify that the file
+exists in the file system.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.9)">pathlib.Path</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -1309,7 +1358,7 @@ version information. For example:</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">wn</a><ul>
-<li><a class="reference internal" href="#lexicon-management-functions">Lexicon Management Functions</a></li>
+<li><a class="reference internal" href="#project-management-functions">Project Management Functions</a></li>
 <li><a class="reference internal" href="#wordnet-query-functions">Wordnet Query Functions</a></li>
 <li><a class="reference internal" href="#the-wordnet-class">The Wordnet Class</a></li>
 <li><a class="reference internal" href="#the-word-class">The Word Class</a></li>
